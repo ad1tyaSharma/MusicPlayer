@@ -1,11 +1,11 @@
 const wrapper = document.querySelector(".wrapper"),
-  musicImg = wrapper.querySelector(".img-area img"),
+  musicImg = wrapper.querySelector("img"),
   musicName = wrapper.querySelector(".song-details .name"),
   musicArtist = wrapper.querySelector(".song-details .artist"),
   playPauseBtn = wrapper.querySelector(".play-pause"),
   prevBtn = wrapper.querySelector("#prev"),
   nextBtn = wrapper.querySelector("#next"),
-  mainAudio = wrapper.querySelector("#main-audio"),
+  mainAudio = wrapper.querySelector("audio"),
   progressArea = wrapper.querySelector(".progress-area"),
   progressBar = progressArea.querySelector(".progress-bar"),
   musicList = wrapper.querySelector(".music-list"),
@@ -19,7 +19,7 @@ var elem = document.createElement("div");
 elem.innerHTML = `Your Playlist will be lost as soon as you refresh your webpage`;
 function songCheck() {
   if (allMusic.length != 0) {
-    document.querySelector(".img-area").innerHTML = `<img src="" alt="" />`;
+    //
   } else {
     document.querySelector(
       ".img-area"
@@ -35,24 +35,30 @@ window.addEventListener("load", () => {
   songCheck();
   //playingSong();
 });
-document.querySelector("input").addEventListener("change", () => {
-  loadMusic(1);
-  if (allMusic.length == 1) {
-    console.log(154);
-  }
-});
+
 function loadMusic(indexNumb) {
   musicName.innerText = allMusic[indexNumb - 1].name;
 
-  musicImg.src = `${allMusic[indexNumb - 1].image}`;
+  //musicImg.src = `${allMusic[indexNumb - 1].image}`;
   mainAudio.src = `${allMusic[indexNumb - 1].path}`;
+  document.querySelector(
+    ".img-area"
+  ).innerHTML = `<img src="https://picsum.photos/400" alt="" />`;
+  //console.log(musicImg);
+  //musicImg.src = "https://picsum.photos/200";
 }
 
 //play music function
 function playMusic() {
-  wrapper.classList.add("paused");
-  playPauseBtn.querySelector("i").innerText = "pause";
-  mainAudio.play();
+  if (allMusic.length == 0) {
+    swal({
+      text: "Please Upload a song.",
+    });
+  } else {
+    wrapper.classList.add("paused");
+    playPauseBtn.querySelector("i").innerText = "pause";
+    mainAudio.play();
+  }
 }
 
 //pause music function
