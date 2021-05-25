@@ -5,6 +5,6 @@ Music Player created using Vanilla Js and hosted using Turbo 360 environment.It 
 
 - For Live demo, [click here:](https://music-player-oof0qi.turbo360-vertex.com/)
 
-- <img src="src/public/images/ss1.png">
-- <img src="src/public/images/ss2.png">
-- <img src="src/public/images/ss3.png">
+- <img src="public/images/ss1.png">
+- <img src="public/images/ss2.png">
+- <img src="public/images/ss3.png">
