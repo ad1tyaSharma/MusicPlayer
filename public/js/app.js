@@ -28,7 +28,7 @@ function songCheck() {
 }
 window.addEventListener("load", () => {
   //loadMusic(musicIndex);
-  console.log(112);
+  //console.log(112);
   swal({
     content: elem,
   });
@@ -216,12 +216,10 @@ function makeList() {
                     <span>${allMusic[i].name}</span>
                     
                   </div>
-                  <span id="${
-                    allMusic[i].src
-                  }" class="audio-duration">3:40</span>
-                  <audio class="${allMusic[i].src}" src="songs/${
-      allMusic[i].src
-    }.mp3"></audio>
+                  <span id="${allMusic[i].src}" class="audio-duration"></span>
+                  <audio class="${allMusic[i].src}" src="${
+      allMusic[i].path
+    }"></audio>
                 </li>`;
     //ulTag.innerHTML = ``;
     ulTag.insertAdjacentHTML("beforeend", liTag); //inserting the li inside ul tag
@@ -237,7 +235,10 @@ function makeList() {
         totalSec = `0${totalSec}`;
       }
       liAudioDuartionTag.innerText = `${totalMin}:${totalSec}`; //passing total duation of song
-      console.log(`${totalMin}:${totalSec}`);
+      /*document.querySelector(
+        ".audio-duration"
+      ).innerText = `${totalMin}:${totalSec}`;*/
+      //console.log(`${totalMin}:${totalSec}`);
       liAudioDuartionTag.setAttribute("t-duration", `${totalMin}:${totalSec}`); //adding t-duration attribute with total duration value
     });
   }
@@ -274,3 +275,30 @@ function clicked(element) {
   playMusic();
   playingSong();
 }
+var input = document.querySelector("input[type=file]");
+document.querySelector("input[type=file]").accept = "audio/*";
+input.onchange = function () {
+  // curr_track.src = URL.createObjectURL(input.files[0]);
+  let name = input.files[0].name;
+  name = name.slice(0, 14);
+  const fresh = {
+    name: name,
+    image: "https://picsum.photos/200",
+    path: URL.createObjectURL(input.files[0]),
+  };
+  //console.log(fresh);
+  allMusic.push(fresh);
+  songCheck();
+  //console.log(allMusic);
+  makeList();
+  // console.log(allMusic.length);
+
+  if (allMusic.length === 1) {
+    loadMusic(1);
+    songCheck();
+    playMusic();
+  }
+
+  //now_playing.textContent =
+  //"PLAYING " + (track_index + 1) + " OF " + track_list.length;
+};

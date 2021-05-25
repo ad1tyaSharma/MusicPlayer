@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Player</title>
-    <link rel="stylesheet" href="css/css.css" />
-    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
@@ -83,38 +83,9 @@
   <script src="js/jquery-v1.min.js"></script>
   <script src="js/jquery.custom-file-input.js"></script>
 </body>
-<script src="js/custom-file-input.js"></script>
-<script type="text/javascript">
-  var input = document.querySelector("input[type=file]");
-  document.querySelector("input[type=file]").accept = "audio/*";
-  input.onchange = function () {
-    // curr_track.src = URL.createObjectURL(input.files[0]);
-    let name = input.files[0].name;
-    name = name.slice(0, 14);
-    const fresh = {
-      name: name,
-      image: "https://picsum.photos/200",
-      path: URL.createObjectURL(input.files[0]),
-    };
-    console.log(fresh);
-    allMusic.push(fresh);
-    songCheck()
-    console.log(allMusic);
-    makeList();
-    console.log(allMusic.length);
-    
-    if(allMusic.length ===1)
-    {
-      
-      loadMusic(1);
-      songCheck()
-      playMusic()
-    }
-    
-    //now_playing.textContent =
-      //"PLAYING " + (track_index + 1) + " OF " + track_list.length;
-  };
 
+<script type="text/javascript">
+  
 </script>
   </body>
 </html>
