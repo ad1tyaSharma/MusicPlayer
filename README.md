@@ -1,5 +1,5 @@
 # Music Player
-Music Player created using Vanilla Js and hosted using Turbo 360 environment.It can play audio files from your local device.
+Music Player created using Vanilla Js and hosted using Turbo 360 environment. It can play audio files from your local device.
 
 
 
